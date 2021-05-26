@@ -8,11 +8,20 @@
 </head>
 <body>
     <h1>Calculadora honorarios</h1>
-    <form action="" method="POST">
+    <form action="" method="POST" novalidate>
         {{ form.hidden_tag() }}
-        {{ form.honorarios.label }}
-        {{ form.honorarios() }}
-        {{ form.submit() }}
+        <p>
+            {{ form.honorarios.label }}
+            {{ form.honorarios() }}
+            {% for error in form.honorarios.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+
+
+
+
     </form>
 </body>
 </html>
